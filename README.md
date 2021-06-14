@@ -1,8 +1,20 @@
-# clipboard_presenter_plugin
+# Clipboard Presenter Plugin
 
-The clipboard_presenter_plugin is a plugin for
-[rx/presenters](https://github.com/rx/presenters) which provides clipboard
+A [COPRL](http://github.com/coprl/coprl) presenter plugin that provides clipboard
 interaction.
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'clipboard_presenter_plugin', git: 'https://github.com/coprl/clipboard_presenter_plugin', require: false
+```
+
+And then execute:
+
+    $ bundle
+
 
 ## Actions
 
@@ -18,7 +30,7 @@ configuration setting
 
 ```ruby
 # config/initializers/presenters.rb
-Voom::Presenters::Settings.configure do |config|
+Coprl::Presenters::Settings.configure do |config|
   config.presenters.plugins << :clipboard
   # Now `clipboard` is available in every POM!
 end
@@ -28,7 +40,7 @@ or on a per-POM basis via the `plugin` method.
 
 ```ruby
 # presenters/foos/view.pom
-Voom::Presenters.define(:view, namespace: :foos) do
+Coprl::Presenters.define(:view, namespace: :foos) do
   plugin :clipboard
 
   # ...
@@ -73,8 +85,12 @@ Or, `npm run watch` to watch `views/clipboard/src` for changes and run steps 1-3
 
 ## Contributing
 
-1. Fork it
-2. Branch it
-4. Fix it
-4. PR it
-5. Done!
+Bug reports and pull requests are welcome on GitHub at https://github.com/coprl/clipboard_presenter_plugin.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the COPRL project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/coprl/coprl/blob/master/CODE-OF-CONDUCT.md).

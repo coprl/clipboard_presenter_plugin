@@ -1,19 +1,18 @@
-Voom::Presenters.define(:clipboard, namespace: :plugins) do
+Coprl::Presenters.define(:clipboard, namespace: :plugins) do
   helpers Demo::Helpers::IndentedGrid
   attach :top_nav
-  attach :events_drawer
+  attach :plugin_drawer
   plugin :clipboard
+  page_title 'Clipboard'
 
-  content do
-    indented_grid do
-      headline 'Copy'
-      text_field id: :copy_me do
-        value "Don't copy that floppy!"
-      end
-      button :copy, type: :raised do
-        event :click do
-          clipboard copy: :copy_me
-        end
+  indented_grid do
+    headline 'Copy'
+    text_field id: :copy_me do
+      value "Don't copy that floppy!"
+    end
+    button :copy, type: :raised do
+      event :click do
+        clipboard copy: :copy_me
       end
     end
   end

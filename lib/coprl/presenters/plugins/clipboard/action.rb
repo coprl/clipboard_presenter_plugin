@@ -1,6 +1,6 @@
-require 'voom/presenters/dsl/components/actions/base'
+require 'coprl/presenters/dsl/components/actions/base'
 
-module Voom
+module Coprl
   module Presenters
     module Plugins
       module Clipboard
@@ -19,8 +19,8 @@ module Voom
 
           # { 'copy' => :some_field } -> [:copy, :some_field]
           def parse_action(action)
+            action = action.symbolize_keys if action.respond_to?(:symbolize_keys)
             action
-              .symbolize_keys
               .keep_if { |k| VALID_ACTIONS.include?(k) }
               .first
           end

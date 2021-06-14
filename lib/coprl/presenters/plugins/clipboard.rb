@@ -1,6 +1,6 @@
 require_relative 'clipboard/action'
 
-module Voom
+module Coprl
   module Presenters
     module Plugins
       module Clipboard
@@ -11,9 +11,12 @@ module Voom
         end
 
         module WebClientComponents
-          def render_header_clipboard(_pom, render:)
-            view_dir = File.join(__dir__, 'clipboard')
-            render.call :erb, :clipboard_header, views: view_dir
+          def view_dir_clipboard(pom)
+            File.join(__dir__, '../../../..', 'views', 'components')
+          end
+
+          def render_header_clipboard(pom, render:)
+            render.call :erb, :clipboard_header, views: view_dir_clipboard(pom)
           end
         end
 
